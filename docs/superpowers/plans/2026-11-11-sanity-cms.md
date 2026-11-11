@@ -51,7 +51,7 @@
 **Files:**
 - Create: `studio-althea-escape/schemaTypes/documents/adventure.ts`, `destination.ts`, `article.ts`, `faq.ts`, `page.ts`, `homePage.ts`, `siteSettings.ts`
 - Create: `studio-althea-escape/schemaTypes/objects/chapter.ts`, `seo.ts`, `link.ts`, `question.ts` (Portable Text lives inline in `chapter.body`; images never get a shared object — see Schema details)
-- Create: `studio-althea-escape/schemaTypes/index.ts` (replace), `studio-althea-escape/structure.ts`, `studio-althea-escape/src/presentation/resolve.ts` (created here, wired in Task 5)
+- Create: `studio-althea-escape/schemaTypes/index.ts` (replace), `studio-althea-escape/structure.ts`
 - Modify: `studio-althea-escape/sanity.config.ts` (structure + title "Althea Escapes"), `studio-althea-escape/sanity.cli.ts` (typegen config)
 
 **Interfaces:**
@@ -177,14 +177,14 @@ Structure (`structure.ts`): top list "Content" → Adventures, Destinations, Fie
 ### Task 5: Visual editing (draft mode, Presentation Tool)
 
 **Files:**
-- Create: `althea-web/app/api/draft-mode/enable/route.ts`, `althea-web/app/api/draft-mode/disable/route.ts`
+- Create: `althea-web/app/api/draft-mode/enable/route.ts`, `althea-web/app/api/draft-mode/disable/route.ts`, `studio-althea-escape/src/presentation/resolve.ts`
 - Modify: `althea-web/app/layout.tsx` (render `<SanityLive includeDrafts={isDraftMode} />` unless `SANITY_API_MODE=offline`, plus `<VisualEditing />` + `<DisableDraftMode />` in draft mode), `studio-althea-escape/sanity.config.ts` (add `presentationTool({resolve, previewUrl: {initial: 'http://localhost:3000', previewMode: {enable: '/api/draft-mode/enable'}}})`)
 
 **Interfaces:**
-- Consumes: `client` + token (Task 2), `resolve.ts` (Task 1).
+- Consumes: `client` + token (Task 2). Installs `@sanity/presentation` in the studio (`yarn add @sanity/presentation` — not currently a dependency; `resolve.ts` is created in this task because its types come from that package).
 - Produces: `resolve.ts` locations for `adventure` (`/adventures/{slug}` + `/adventures`), `destination` (`/destinations/{slug}` + `/destinations`), `article` (`/journal/{slug}` + `/journal`), and every singleton `_id` → its route; enable route via `defineEnableDraftMode({client: client.withConfig({token: process.env.SANITY_API_READ_TOKEN || ''})})`; disable route per the Sanity guide (redirect to `/`).
 
-- [ ] **Step 1: Write the three files + wire layout/config** per Interfaces (keep layout markup otherwise identical).
+- [ ] **Step 1: Install `@sanity/presentation` in the studio** (`cd studio-althea-escape && yarn add @sanity/presentation`), then write the three files + wire layout/config** per Interfaces (keep layout markup otherwise identical).
 - [ ] **Step 2: Verify builds** — Run: `cd althea-web && npm run build && cd ../studio-althea-escape && yarn build`. Expected: both pass; `tsc --noEmit` clean in web.
 - [ ] **Step 3: Smoke-test both modes** — Run web dev + studio dev; visit `/` (no draft cookie → static fallback path), then `/api/draft-mode/enable`-style flow documented for the user (full click-to-edit needs the seeded dataset + CORS, verified post-seed). Record findings in the commit message; Task 6 Step 5 folds them into `seed/README.md`'s verification section.
 - [ ] **Step 4: Commit** — `git add althea-web studio-althea-escape && git commit -m "feat: visual editing via draft mode and presentation tool"`.
