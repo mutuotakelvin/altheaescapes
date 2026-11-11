@@ -1,0 +1,58 @@
+import { heroSlides } from './heroSlides';
+export const categories = ['All escapes', 'Air', 'Water', 'Land', 'Wilderness'] as const;
+const details = [
+  {
+    name: 'Take the leap', category: 'Air', region: 'coastal-horizons', place: 'Coastal horizons', mood: 'A different kind of perspective', pace: 'Short & exhilarating', bestFor: 'A milestone moment',
+    intro: 'There is a moment when the familiar falls away. The shoreline becomes a line, the horizon opens up, and the day becomes something you’ll remember long after you’re back on the ground.',
+    story: 'This escape concept is built around the feeling of a first leap: the anticipation, the shared smiles, the extraordinary view. Give the experience space on either side. Come curious, stay for the landing, and leave the rest of the day open for the story.',
+    highlights: ['An entirely new view of the coast', 'A moment worth sharing with your people', 'Time to take it all in after the landing'],
+    day: [{ title: 'Arrive with a little anticipation', copy: 'Meet your group, get your bearings, and settle into the rhythm of the day. The confirmed operator will provide the activity briefing and participation requirements.' }, { title: 'See the everyday fall away', copy: 'The activity is the centrepiece. The exact format, duration and operating conditions will be included in the final escape details.' }, { title: 'Keep the feeling a little longer', copy: 'Make room for a slow drink, the inevitable retelling, and a final look at that horizon before you head home.' }],
+    bring: ['A comfortable outfit suited to the confirmed activity', 'A small day bag for your everyday belongings', 'A little room in your schedule after the experience'],
+    quote: 'Some perspectives only come when you leave the ground.',
+  },
+  {
+    name: 'Own the rapids', category: 'Water', region: 'river-country', place: 'River country', mood: 'Find your flow, together', pace: 'Active & shared', bestFor: 'Friends who say yes',
+    intro: 'A river has a way of bringing everyone into the same moment. The next bend, the next paddle stroke, the laughter when you all find your rhythm. Nothing else needs your attention.',
+    story: 'Our whitewater concept is about shared energy. It’s the kind of day that feels better with a crew, with quieter stretches between the rush and a chance to notice the landscape from the water. The river sets the tone; you bring the people.',
+    highlights: ['A shared experience with your crew', 'A landscape seen from the river', 'The contrast of moving water and quiet banks'],
+    day: [{ title: 'Find your crew', copy: 'Arrive, meet the people sharing your day, and get ready for the activity briefing. The final itinerary will explain equipment, route and participation requirements.' }, { title: 'Follow the river', copy: 'Move through the water together, with moments of energy and space to take in the banks between them. The confirmed route will shape the experience.' }, { title: 'Let the stories flow', copy: 'Finish with time to change, regroup and talk through everyone’s favourite moment. Leave a little space before the journey home.' }],
+    bring: ['A dry change of clothes for after the activity', 'A way to keep personal items dry on the journey', 'The activity-specific packing list when your trip is confirmed'],
+    quote: 'The best kind of current brings you closer together.',
+  },
+  {
+    name: 'Rise above limits', category: 'Land', region: 'highlands', place: 'The highlands', mood: 'A little further. A little higher.', pace: 'Steady & unhurried', bestFor: 'People who love a horizon',
+    intro: 'The view changes slowly, then all at once. A trail turns, the ridge opens, and there it is: the reason you put one foot in front of the other.',
+    story: 'This walking concept leaves room for the climb and the pause. For conversations that find their own pace, a quiet lookout, and the satisfaction of arriving under your own steam. The point isn’t to rush to the top. It’s to come back feeling a little more present.',
+    highlights: ['A route with room to look around', 'Open landscapes and a fresh point of view', 'A shared pause somewhere worth the walk'],
+    day: [{ title: 'Start at your own pace', copy: 'Get to know the route and the group before setting off. Distance, elevation, terrain and the planned walking pace will be published with the final trip.' }, { title: 'Follow the higher trail', copy: 'The walk becomes the day: changing textures, open views, and time for the details you miss from a car window.' }, { title: 'Make the lookout a moment', copy: 'Pause before turning back. Take the photograph, put the camera away, and give yourself a few minutes with the view.' }],
+    bring: ['Footwear appropriate for the confirmed terrain', 'Layers and a day bag for a changing day outside', 'Your personal essentials and the final route packing list'],
+    quote: 'There’s more to the climb than the summit.',
+  },
+  {
+    name: 'Answer the wild', category: 'Wilderness', region: 'highlands', place: 'The highlands', mood: 'Less signal. More connection.', pace: 'Slow & spacious', bestFor: 'A proper change of pace',
+    intro: 'Stay long enough for the light to change. For the last conversation to go quiet. For the morning to arrive without an alarm telling you what comes next.',
+    story: 'Our camping concept is an invitation to make less of a plan. A landscape to settle into, a simple evening, and a night that feels far from your usual routine. Comfort details, equipment and the overnight setup will be clear before any trip can be booked.',
+    highlights: ['An evening that belongs to the landscape', 'Space for conversation and quiet', 'A slower start to the next morning'],
+    day: [{ title: 'Leave the everyday behind', copy: 'Arrive with enough daylight to settle in and discover the setting. The final itinerary will explain access, camp arrangements and what is provided.' }, { title: 'Let the evening unfold', copy: 'Make a little time for everything: a walk, a shared meal, the changing sky. The experience is as much about the gaps as the activities.' }, { title: 'Wake up somewhere different', copy: 'Take the morning slowly. Give the place the same care when you leave as when you arrived, and bring the feeling home with you.' }],
+    bring: ['Personal overnight essentials', 'Layers for your confirmed setting and dates', 'Only the camping equipment specified in the final trip list'],
+    quote: 'A night outside. A little more room inside.',
+  },
+];
+export const escapes = details.map((detail, index) => ({ ...detail, slug: heroSlides[index].slug, image: heroSlides[index].image }));
+export type Escape = (typeof escapes)[number];
+
+export const destinations = [
+  { slug: 'highlands', name: 'The highlands', eyebrow: 'RIDGES / TRAILS / OPEN SKIES', image: '/images/mountain.jpg', alt: 'A rocky mountain ridge and rolling highlands', headline: 'Room to find your own pace.', intro: 'Long views. Quiet trails. The particular kind of stillness you only notice when you stop walking. Our highlands collection brings together the landscapes that ask you to slow down and look a little longer.', paragraphs: ['Think of the highlands as a feeling before a pin on a map. Open ground, shifting light, and places where the journey is part of the reason to go. This is the home of our walking and wilderness concepts.', 'A day here can be as much about a pause as a climb. An overnight escape makes room for the evening and the morning too. Choose the rhythm first; we’ll share confirmed locations, routes and access details as the collection develops.'], moments: ['A ridge worth the walk', 'A quiet evening at camp', 'The first light over open ground'], image2: '/images/camping.jpg', category: 'Land & Wilderness' },
+  { slug: 'river-country', name: 'River country', eyebrow: 'MOVING WATER / GREEN BANKS / SHARED ENERGY', image: '/images/rafting.jpg', alt: 'A red raft moving through whitewater and forest', headline: 'Go where the water takes you.', intro: 'Here, the landscape is always in motion. The river turns, the banks open up, and a familiar group becomes a crew. This collection is for days that pull you fully into the moment.', paragraphs: ['River country is our landscape collection for moving water and the places around it. It’s a starting point for curiosity, with the whitewater concept at its heart.', 'Every river has its own character. Final routes, water conditions, activity requirements and access arrangements will be part of the published trip details. For now, imagine the kind of day you want to share and the people you want beside you.'], moments: ['Finding a rhythm together', 'The view around the next bend', 'A slow pause beside the water'], image2: '/images/rafting.jpg', category: 'Water' },
+  { slug: 'coastal-horizons', name: 'Coastal horizons', eyebrow: 'WIDE HORIZONS / OPEN AIR / A FRESH PERSPECTIVE', image: '/images/skydiving-coast.jpg', alt: 'A skydiver above a blue coastline', headline: 'See how far a feeling can take you.', intro: 'A meeting of sea and sky. The coastline gets smaller, the horizon gets wider, and the day suddenly feels full of possibility. This is where our air adventure concept finds its perspective.', paragraphs: ['Coastal horizons gathers the feeling of wide-open air and a view that changes everything. It’s less about checking a destination off a list and more about finding a moment you’ll carry with you.', 'The air collection is still taking shape. Exact settings, activity formats and operator details will be shared before booking opens. You can explore the idea now and make it part of your own escape brief.'], moments: ['The anticipation before a first leap', 'A coastline from a new angle', 'The feeling you bring back down'], image2: '/images/skydiving-coast.jpg', category: 'Air' },
+];
+
+export const commonQuestions = [
+  { question: 'Do I need adventure experience?', answer: 'Your starting point matters. Each confirmed escape will include its activity level, operator requirements and any previous experience needed. For now, explore the concepts and use your brief to note what you’re comfortable with.' },
+  { question: 'Can I come with friends?', answer: 'Yes, you can plan around your own crew. Group sizes and private escape options will be included with the confirmed collection. Our escape planner lets you capture your group’s interests now.' },
+  { question: 'Where do the adventures take place?', answer: 'Our destinations are landscape collections at this stage: the highlands, river country and coastal horizons. Specific locations, meeting points and travel details will be published with the final trips.' },
+  { question: 'How do I book an escape?', answer: 'Booking isn’t open yet. Explore the detailed escape concepts and create a downloadable brief. Confirmed dates, prices, inclusions and booking terms will be published before reservations open.' },
+  { question: 'What is included in an escape?', answer: 'Inclusions are not confirmed yet. Every bookable trip will clearly describe its activities, equipment, meals, accommodation and transport arrangements, including anything you need to arrange separately.' },
+  { question: 'Can I plan something just for my group?', answer: 'Start with the escape planner and describe what your group has in mind. It creates a brief you can keep. Private experiences will depend on the final collection and availability.' },
+  { question: 'Does the planner make a reservation?', answer: 'No. The planner creates a personal brief you can download. It does not reserve a place, collect payment or send an enquiry. You can change the brief whenever your plans change.' },
+];

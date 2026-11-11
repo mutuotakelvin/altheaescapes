@@ -1,0 +1,2 @@
+import { PageShell, PageIntro } from '@/components/site/PageParts';
+export function InformationPage({ title, description, sections }: { title: string; description: string; sections: { title: string; copy: string }[] }) { return <PageShell><PageIntro eyebrow="THE SMALL PRINT, IN PLAIN WORDS" title={title} description={description} /><article className="page-section information-page">{sections.map(section => <section key={section.title}><h2>{section.title}</h2><p>{section.copy}</p></section>)}</article></PageShell>; }

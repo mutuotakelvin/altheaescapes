@@ -1,0 +1,3 @@
+import Link from 'next/link';
+import { PageShell } from '@/components/site/PageParts';
+export default function NotFound() { return <PageShell><div className="not-found page-section"><p className="landing-kicker">A SMALL DETOUR / 404</p><h1>This trail takes<br />a different turn.</h1><p>The page you’re looking for isn’t here. There’s still plenty of outside to explore.</p><Link href="/adventures" className="landing-pill">Find an escape <span aria-hidden="true">↗</span></Link><Link href="/" className="landing-text-link">Back to the beginning <span aria-hidden="true">↗</span></Link></div></PageShell>; }

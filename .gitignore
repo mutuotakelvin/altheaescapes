@@ -1,0 +1,25 @@
+# Workspace-level ignores (per-project .gitignore files handle the rest)
+
+# Superpowers SDD scratch (plan workspaces, briefs, review packages)
+.superpowers/
+
+# Dependencies
+node_modules/
+
+# Next.js
+.next/
+
+# Sanity
+.sanity/
+
+# Environment files
+.env
+.env*.local
+
+# Test artifacts
+test-results/
+playwright-report/
+coverage/
+
+# TypeScript
+*.tsbuildinfo

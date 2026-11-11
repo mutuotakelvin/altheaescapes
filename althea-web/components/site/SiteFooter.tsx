@@ -1,0 +1,4 @@
+import Link from 'next/link';
+export function SiteFooter() {
+  return <footer className="site-footer"><div className="footer-top"><Link href="/" className="wordmark footer-wordmark" aria-label="Althea Escapes home">althea<span>ESCAPES</span></Link><p>A little further.<br />A little wilder.</p><Link href="/adventures" className="footer-back">Find your next escape <span aria-hidden="true">↗</span></Link></div><nav aria-label="Footer navigation"><Link href="/adventures">The collection</Link><Link href="/destinations">Destinations</Link><Link href="/about">Our story</Link><Link href="/journal">Field notes</Link><Link href="/faqs">FAQs</Link><Link href="/contact">Contact</Link><Link href="/plan">Plan your escape</Link></nav><div className="footer-bottom"><span>© Althea Escapes</span><span className="footer-legal"><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link></span><span>MADE FOR THE OUTSIDE.</span></div></footer>;
+}
