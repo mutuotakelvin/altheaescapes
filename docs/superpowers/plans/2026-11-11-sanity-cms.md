@@ -207,7 +207,7 @@ Structure (`structure.ts`): top list "Content" → Adventures, Destinations, Fie
 - [ ] **Step 1: Write the failing seed validation test** — `tests/seed.spec.ts` parses the ndjson (if missing, fail with instruction to run the generator) and asserts: every line is valid JSON with `_id`/`_type`; `_type`s ∈ schema types; singleton `_id`s exactly the eleven listed; adventure slugs = pinned set; destination slugs = pinned set; article slugs = pinned set; every `_ref` target exists in the file; every `_sanityAsset` path exists on disk (resolve against `/home/bobak/hobby/althea/althea-web/public`); `heroOrder`/`order` values unique and zero-based sequential per type.
 - [ ] **Step 2: Run it and verify it fails** (file missing). Run: `npx vitest run tests/seed.spec.ts`.
 - [ ] **Step 3: Implement `scripts/generate-seed.ts`** per Interfaces (map each static view model back to schema-shaped documents; hero slides merge into their adventure by slug).
-- [ ] **Step 4: Run the generator, then the validation test** — Run: `npm run seed:generate && npx vitest run tests/seed.spec.ts`. Expected: PASS with 25 documents (4 adventures, 3 destinations, 3 articles, 7 FAQs, 11 singletons) — assert that count in the test.
+- [ ] **Step 4: Run the generator, then the validation test** — Run: `npm run seed:generate && npx vitest run tests/seed.spec.ts`. Expected: PASS with 28 documents (4 adventures, 3 destinations, 3 articles, 7 FAQs, 11 singletons) — assert that count in the test.
 - [ ] **Step 5: Write `seed/README.md`** per Interfaces.
 - [ ] **Step 6: Commit** — `git add althea-web studio-althea-escape && git commit -m "feat(seed): dataset seed replicating current content"`.
 
