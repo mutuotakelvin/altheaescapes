@@ -12,4 +12,10 @@ export default defineCliConfig({
      */
     autoUpdates: true,
   },
+  typegen: {
+    path: '../althea-web/**/*.{ts,tsx}',
+    schema: 'schema.json',
+    generates: '../althea-web/sanity.types.ts',
+    overloadClientMethods: true,
+  },
 })
